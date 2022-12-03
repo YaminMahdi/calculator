@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 
 class MainActivity : AppCompatActivity() {
     lateinit var num1: EditText
@@ -21,9 +22,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var ans: TextView
     var n1: Int? = null
     var n2: Int? = null
+    val vm: MainModelVIew by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        vm.getVal().observe(this) {
+            ans.text=it
+        }
         setContentView(R.layout.activity_main)
         num1 = findViewById(R.id.in1)
         num2 = findViewById(R.id.in2)
@@ -35,13 +41,12 @@ class MainActivity : AppCompatActivity() {
 
         ans = findViewById(R.id.output)
 
+
         sum.setOnClickListener { cal(it) }
         sub.setOnClickListener { cal(it) }
         mul.setOnClickListener { cal(it) }
         div.setOnClickListener { cal(it) }
         per.setOnClickListener { cal(it) }
-
-
 
 
     }
@@ -52,16 +57,21 @@ class MainActivity : AppCompatActivity() {
         else {
             n1 = num1.text.toString().toInt()
             n2 = num2.text.toString().toInt()
+            var tmp: String
             if (it.id == R.id.sum)
-                ans.text = (n1!! + n2!!).toString()
+                tmp = (n1!! + n2!!).toString()
             else if (it.id == R.id.sub)
-                ans.text = (n1!! - n2!!).toString()
+                tmp = (n1!! - n2!!).toString()
             else if (it.id == R.id.mul)
-                ans.text = (n1!! * n2!!).toString()
+                tmp = (n1!! * n2!!).toString()
             else if (it.id == R.id.div)
-                ans.text = (n1!! / n2!!).toString()
+                tmp = (n1!! / n2!!).toString()
             else
-                ans.text = (n1!! * (n2!! / 100.0)).toString()
+                tmp = (n1!! * (n2!! / 100.0)).toString()
+
+            vm.saveVal(tmp)
+            ans.text=tmp
+
         }
     }
 }

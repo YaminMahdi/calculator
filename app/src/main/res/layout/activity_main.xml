@@ -4,126 +4,137 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="#302B2B"
     android:orientation="vertical"
-    >
+    tools:context=".MainActivity">
 
-    <TextView
-        android:layout_marginTop="50dp"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calculator"
-        android:textColor="@color/white"
-        android:textSize="50dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        />
+        android:layout_height="match_parent"
 
-    <EditText
-        android:id="@+id/in1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="First Input"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginVertical="20dp"
-        android:padding="10dp"
-        android:inputType="number"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:background="#DFCCF8"
-        />
-    <EditText
-        android:id="@+id/in2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Second Input / percentage"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="20dp"
-
-        android:padding="10dp"
-        android:inputType="number"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:background="#DFCCF8"
-        />
-    <TextView
-        android:id="@+id/output"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Output"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginVertical="20dp"
-        android:padding="10dp"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:background="#C5FBC7"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:weightSum="5"
         >
-        <Button
-            android:id="@+id/sum"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:text="+"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:backgroundTint="@color/white"
-            />
-        <Button
-            android:id="@+id/sub"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:text="-"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:backgroundTint="@color/white"
-            />
-        <Button
-            android:id="@+id/mul"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:text="×"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:backgroundTint="@color/white"
-            />
-        <Button
-            android:id="@+id/div"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:text="÷"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:backgroundTint="@color/white"
-            />
-        <Button
-            android:id="@+id/per"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:text="%"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:backgroundTint="#9EE1FF"
-            />
-    </LinearLayout>
+            android:gravity="center"
+            android:orientation="vertical">
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="Calculator"
+                android:textColor="@color/white"
+                android:textSize="50dp" />
 
+            <EditText
+                android:id="@+id/in1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="20dp"
+                android:background="#DFCCF8"
+                android:gravity="center"
+                android:hint="First Input"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/in2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="#DFCCF8"
+
+                android:gravity="center"
+                android:hint="Second Input / percentage"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/output"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="20dp"
+                android:background="#C5FBC7"
+                android:gravity="center"
+                android:hint="Output"
+                android:padding="10dp"
+                android:textSize="40sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/sum"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="+"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/sub"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/mul"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="×"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/div"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="÷"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/per"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#9EE1FF"
+                    android:text="%"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
