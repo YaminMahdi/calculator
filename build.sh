@@ -2,59 +2,24 @@
 set -e
 
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SDK_JAR="$HOME/android-sdk/platforms/android-33/android.jar"
-BUILD_DIR="$HOME/.calculator_cache"
-APP_DIR="$PROJECT_DIR/app/src/main"
+cd "$PROJECT_DIR"
 
-echo "=== Building Calculator APK ==="
-mkdir -p "$BUILD_DIR/compiled" "$BUILD_DIR/gen" "$BUILD_DIR/obj" "$BUILD_DIR/bin"
+# Ensure Java is in PATH if running in Termux or proot
+if [ -d "/data/data/com.termux/files/usr/lib/jvm/java-17-openjdk/bin" ]; then
+    export JAVA_HOME="/data/data/com.termux/files/usr/lib/jvm/java-17-openjdk"
+    export PATH="$JAVA_HOME/bin:$PATH"
+fi
 
-# 1. Compile resources with aapt2
-echo "[1/5] Compiling resources..."
-aapt2 compile --dir "$APP_DIR/res" -o "$BUILD_DIR/compiled/res.zip"
+echo "=== Building Calculator APK with Gradle ==="
+bash ./gradlew assembleDebug
 
-# 2. Link resources and generate R.java
-echo "[2/5] Linking resources and generating R.java..."
-aapt2 link --auto-add-overlay \
-  -I "$SDK_JAR" \
-  --manifest "$APP_DIR/AndroidManifest.xml" \
-  --version-code 1 \
-  --version-name "1.0.0" \
-  --java "$BUILD_DIR/gen" \
-  -o "$BUILD_DIR/bin/app-unaligned.apk" \
-  "$BUILD_DIR/compiled/res.zip"
-
-# 3. Compile Java sources
-echo "[3/5] Compiling Java classes..."
-javac -encoding UTF-8 \
-  -cp "$SDK_JAR" \
-  -d "$BUILD_DIR/obj" \
-  "$BUILD_DIR/gen/com/mlab/calculator/R.java" \
-  "$APP_DIR/java/com/mlab/calculator/MainActivityXml.java"
-
-# 4. Compile bytecode to Dalvik Executable (.dex)
-echo "[4/5] Compiling classes to DEX..."
-d8 --lib "$SDK_JAR" \
-  --output "$BUILD_DIR/bin" \
-  $(find "$BUILD_DIR/obj" -name "*.class")
-
-cd "$BUILD_DIR/bin"
-aapt add app-unaligned.apk classes.dex > /dev/null
-
-# 5. Sign the APK
-echo "[5/5] Signing APK..."
-apksigner sign --ks "$HOME/.android/debug.keystore" \
-  --ks-pass pass:android \
-  --ks-key-alias androiddebugkey \
-  --key-pass pass:android \
-  --out "$PROJECT_DIR/Calculator.apk" \
-  app-unaligned.apk
+APK_PATH="$PROJECT_DIR/app/build/outputs/apk/debug/app-debug.apk"
 
 echo "=== Build Successful! ==="
-echo "Output: $PROJECT_DIR/Calculator.apk"
+echo "Output: $APK_PATH"
 
 if [[ "$1" == "--run" || "$1" == "-r" ]]; then
   echo ""
   echo "=== Installing and Running via rish ADB ==="
-  rish -c "cp '$PROJECT_DIR/Calculator.apk' /data/local/tmp/app_install.apk && pm install -r -d /data/local/tmp/app_install.apk && rm -f /data/local/tmp/app_install.apk && am start -n com.mlab.calculator/.MainActivity"
+  rish -c "cp '$APK_PATH' /data/local/tmp/app_install.apk && pm install -r -d /data/local/tmp/app_install.apk && rm -f /data/local/tmp/app_install.apk && am start -n com.mlab.calculator/.MainActivity"
 fi
