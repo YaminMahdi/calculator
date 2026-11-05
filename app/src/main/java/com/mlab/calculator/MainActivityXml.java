@@ -1,4 +1,4 @@
-package com.example.calculator;
+package com.mlab.calculator;
 
 import android.app.Activity;
 import android.graphics.Color;

@@ -1,4 +1,4 @@
-package com.example.calculator.compose
+package com.mlab.calculator.compose
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme

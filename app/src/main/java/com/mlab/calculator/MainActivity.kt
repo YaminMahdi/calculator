@@ -1,4 +1,4 @@
-package com.example.calculator
+package com.mlab.calculator
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,9 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.calculator.compose.BackgroundDark
-import com.example.calculator.compose.CalculatorComposeTheme
-import com.example.calculator.compose.CalculatorScreen
+import com.mlab.calculator.compose.BackgroundDark
+import com.mlab.calculator.compose.CalculatorComposeTheme
+import com.mlab.calculator.compose.CalculatorScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

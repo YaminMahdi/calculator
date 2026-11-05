@@ -1,4 +1,4 @@
-package com.example.calculator
+package com.mlab.calculator
 
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText

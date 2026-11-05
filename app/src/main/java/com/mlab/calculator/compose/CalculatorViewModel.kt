@@ -1,4 +1,4 @@
-package com.example.calculator.compose
+package com.mlab.calculator.compose
 
 import java.text.DecimalFormat
 import java.util.Stack

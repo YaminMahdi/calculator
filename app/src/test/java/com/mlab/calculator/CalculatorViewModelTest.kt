@@ -1,6 +1,6 @@
-package com.example.calculator
+package com.mlab.calculator
 
-import com.example.calculator.compose.CalculatorViewModel
+import com.mlab.calculator.compose.CalculatorViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

@@ -1,4 +1,4 @@
-package com.example.calculator.compose
+package com.mlab.calculator.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

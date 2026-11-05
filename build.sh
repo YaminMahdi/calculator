@@ -27,8 +27,8 @@ echo "[3/5] Compiling Java classes..."
 javac -encoding UTF-8 \
   -cp "$SDK_JAR" \
   -d "$BUILD_DIR/obj" \
-  "$BUILD_DIR/gen/com/example/calculator/R.java" \
-  "$APP_DIR/java/com/example/calculator/MainActivityXml.java"
+  "$BUILD_DIR/gen/com/mlab/calculator/R.java" \
+  "$APP_DIR/java/com/mlab/calculator/MainActivityXml.java"
 
 # 4. Compile bytecode to Dalvik Executable (.dex)
 echo "[4/5] Compiling classes to DEX..."
@@ -54,5 +54,5 @@ echo "Output: $PROJECT_DIR/Calculator.apk"
 if [[ "$1" == "--run" || "$1" == "-r" ]]; then
   echo ""
   echo "=== Installing and Running via rish ADB ==="
-  rish -c "cp '$PROJECT_DIR/Calculator.apk' /data/local/tmp/app_install.apk && pm install -r -d /data/local/tmp/app_install.apk && rm -f /data/local/tmp/app_install.apk && am start -n com.example.calculator/.MainActivity"
+  rish -c "cp '$PROJECT_DIR/Calculator.apk' /data/local/tmp/app_install.apk && pm install -r -d /data/local/tmp/app_install.apk && rm -f /data/local/tmp/app_install.apk && am start -n com.mlab.calculator/.MainActivity"
 fi

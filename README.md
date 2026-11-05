@@ -26,7 +26,7 @@ calculator/
 │   └── src/
 │       ├── main/
 │       │   ├── AndroidManifest.xml # App manifest
-│       │   ├── java/com/example/calculator/
+│       │   ├── java/com/mlab/calculator/
 │       │   │   ├── MainActivity.kt        # Jetpack Compose Launcher Activity
 │       │   │   ├── MainActivityXml.java   # Classic View Activity
 │       │   │   └── compose/
