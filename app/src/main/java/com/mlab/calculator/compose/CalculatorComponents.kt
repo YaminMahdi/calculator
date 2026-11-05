@@ -11,9 +11,9 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -107,7 +107,7 @@ fun ToolbarIconButton(
             .background(ToolbarButtonBg)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(bounded = true, color = Color.White),
+                indication = ripple(bounded = true, color = Color.White),
                 onClick = onClick
             ),
         contentAlignment = Alignment.Center
@@ -145,7 +145,7 @@ fun CalculatorButton(
             .background(backgroundColor)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(bounded = true, color = textColor.copy(alpha = 0.2f)),
+                indication = ripple(bounded = true, color = textColor.copy(alpha = 0.2f)),
                 onClick = onClick
             ),
         contentAlignment = Alignment.Center

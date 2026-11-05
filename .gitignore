@@ -25,6 +25,9 @@ local.properties
 ehthumbs.db
 Thumbs.db
 
+# Kotlin
+.kotlin/
+
 # Android Profiler & CXX
 captures/
 .externalNativeBuild/

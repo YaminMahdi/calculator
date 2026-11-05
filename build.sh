@@ -20,6 +20,5 @@ echo "Output: $APK_PATH"
 
 if [[ "$1" == "--run" || "$1" == "-r" ]]; then
   echo ""
-  echo "=== Installing and Running via rish ADB ==="
-  rish -c "cp '$APK_PATH' /data/local/tmp/app_install.apk && pm install -r -d /data/local/tmp/app_install.apk && rm -f /data/local/tmp/app_install.apk && am start -n com.mlab.calculator/.MainActivity"
+  bash "$PROJECT_DIR/run.sh"
 fi

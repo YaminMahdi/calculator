@@ -69,12 +69,15 @@ calculator/
 
 ### Using Standalone Build Script (Termux / Lightweight)
 
+> [!NOTE]
+> If your project is stored on `/sdcard` or `/mnt/sdcard`, Android mounts shared storage with `noexec`. Run scripts explicitly with `bash` (e.g. `bash build.sh --run` or `bash gradlew assembleDebug`).
+
 ```bash
-# Build APK using aapt2 + javac + d8
-./build.sh
+# Build debug APK using Gradle wrapper
+bash build.sh
 
 # Build, install, and launch via Shizuku/rish ADB
-./build.sh --run
+bash build.sh --run
 ```
 
 ---
