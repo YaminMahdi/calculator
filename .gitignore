@@ -1,0 +1,31 @@
+# Built-in Android / Gradle artifacts
+*.apk
+*.idsig
+*.aab
+*.ap_
+/build/
+*/build/
+.gradle/
+.calculator_cache/
+
+# Local configuration
+local.properties
+
+# Android Studio / IntelliJ IDEA
+*.iml
+.idea/
+.shelf/
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Android Profiler & CXX
+captures/
+.externalNativeBuild/
+.cxx/

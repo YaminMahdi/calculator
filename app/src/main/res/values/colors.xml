@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="calc_background">#1D232C</color>
+    <color name="calc_display_bg">#1D232C</color>
+    <color name="btn_number_bg">#DEE2EA</color>
+    <color name="btn_number_text">#464D5C</color>
+    <color name="btn_operator_bg">#757B9C</color>
+    <color name="btn_operator_text">#FFFFFF</color>
+    <color name="btn_equals_bg">#FF6014</color>
+    <color name="btn_equals_text">#FFFFFF</color>
+    <color name="text_expression">#9EABB8</color>
+    <color name="text_result">#FFFFFF</color>
+    <color name="tool_icon_tint">#BAC5D4</color>
+    <color name="tool_btn_bg">#28303C</color>
+    <!-- Fallback aliases for style -->
+    <color name="primary">#1D232C</color>
+    <color name="primary_dark">#151920</color>
+    <color name="accent">#FF6014</color>
+    <color name="background">#1D232C</color>
+</resources>
