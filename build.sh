@@ -18,6 +18,8 @@ echo "[2/5] Linking resources and generating R.java..."
 aapt2 link --auto-add-overlay \
   -I "$SDK_JAR" \
   --manifest "$APP_DIR/AndroidManifest.xml" \
+  --version-code 1 \
+  --version-name "1.0.0" \
   --java "$BUILD_DIR/gen" \
   -o "$BUILD_DIR/bin/app-unaligned.apk" \
   "$BUILD_DIR/compiled/res.zip"
